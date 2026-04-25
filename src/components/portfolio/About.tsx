@@ -1,3 +1,5 @@
+import avatar from "@/assets/avatar.jpg";
+
 const pillars = [
   {
     k: "01",
@@ -38,11 +40,22 @@ export const About = () => {
               Every project here is a piece of a larger thesis: software should run itself, compound for the operator, and route value back to the human at the root.
             </p>
 
-            <div className="mt-8 inline-flex items-center gap-3 px-4 py-3 rounded-2xl glass">
-              <div className="h-10 w-10 rounded-xl bg-aurora animate-aurora shadow-glow" />
+            <div className="mt-8 flex items-center gap-4">
+              <div className="relative h-16 w-16 rounded-2xl overflow-hidden glow-border shrink-0">
+                <img
+                  src={avatar}
+                  alt="Ryan Puddy"
+                  width={832}
+                  height={1024}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
               <div>
                 <div className="text-sm font-semibold">Currently building</div>
-                <div className="text-xs text-muted-foreground font-mono">AURA OMEGA · Dominion · CEO Brain</div>
+                <div className="text-xs text-muted-foreground font-mono">
+                  AURA OMEGA · Dominion · CEO Brain
+                </div>
               </div>
             </div>
           </div>
@@ -51,7 +64,8 @@ export const About = () => {
             {pillars.map((p) => (
               <div
                 key={p.k}
-                className="relative rounded-2xl p-6 glow-border bg-gradient-card overflow-hidden"
+                className="relative rounded-2xl p-6 glow-border bg-gradient-card overflow-hidden spotlight"
+                data-spotlight
               >
                 <div className="font-mono text-xs text-primary tracking-widest">{p.k}</div>
                 <h3 className="mt-3 font-display text-xl font-semibold">{p.title}</h3>

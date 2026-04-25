@@ -157,6 +157,60 @@
     pointer-events: none;
     mix-blend-mode: overlay;
   }
+
+  /* Cursor-tracking spotlight: place [data-spotlight] on a positioned parent. */
+  .spotlight {
+    position: relative;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s var(--transition-smooth);
+    background: radial-gradient(
+      350px circle at var(--mx, 50%) var(--my, 50%),
+      hsl(var(--primary) / 0.18),
+      transparent 60%
+    );
+    z-index: 1;
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* 3D tilt wrapper */
+  .tilt {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: transform 0.4s var(--transition-smooth);
+  }
+  .tilt-inner {
+    transform: translateZ(20px);
+  }
+
+  /* Marquee row */
+  .marquee {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+  .marquee-slow { animation-duration: 60s; }
+  .marquee:hover { animation-play-state: paused; }
+
+  /* Reveal helper */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s var(--transition-smooth), transform 0.9s var(--transition-smooth);
+  }
+  .reveal.is-shown {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @layer utilities {
@@ -202,4 +256,18 @@
 @keyframes aurora {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
