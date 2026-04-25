@@ -1,82 +1,7 @@
 import { useMemo, useState } from "react";
-import { projects, categories, type Project } from "@/data/projects";
+import { projects, categories } from "@/data/projects";
+import { ProjectCard } from "./ProjectCard";
 import { cn } from "@/lib/utils";
-
-const categoryAccent: Record<string, string> = {
-  "AI Agents": "from-primary to-secondary",
-  Web3: "from-secondary to-accent",
-  Commerce: "from-accent to-primary",
-  "Creator OS": "from-primary-glow to-secondary",
-  "Trading & Markets": "from-accent to-secondary-glow",
-  Productivity: "from-secondary to-primary",
-  "Health & Lifestyle": "from-primary to-accent",
-  Experiments: "from-secondary-glow to-accent",
-};
-
-const ProjectCard = ({ p }: { p: Project }) => {
-  const accent = categoryAccent[p.category] ?? "from-primary to-secondary";
-  const hasUrl = Boolean(p.url);
-  const Tag = hasUrl ? "a" : "div";
-  const tagProps = hasUrl
-    ? { href: p.url, target: "_blank", rel: "noopener noreferrer" }
-    : {};
-
-  return (
-    <Tag
-      {...(tagProps as object)}
-      className={cn(
-        "group relative flex flex-col rounded-2xl p-5 md:p-6 glow-border bg-gradient-card overflow-hidden transition-all duration-500",
-        hasUrl && "hover:-translate-y-1 hover:shadow-elevated cursor-pointer"
-      )}
-    >
-      {/* Decorative gradient corner */}
-      <div
-        className={cn(
-          "absolute -top-20 -right-20 h-48 w-48 rounded-full opacity-20 blur-3xl bg-gradient-to-br transition-opacity duration-500 group-hover:opacity-40",
-          accent
-        )}
-        aria-hidden
-      />
-
-      <div className="flex items-start justify-between gap-3 relative">
-        <span
-          className={cn(
-            "inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest border border-border/60 bg-background/40 text-muted-foreground"
-          )}
-        >
-          {p.category}
-        </span>
-        {hasUrl && (
-          <span className="h-2 w-2 rounded-full bg-primary shadow-glow animate-pulse-glow" title="Live" />
-        )}
-      </div>
-
-      <h3 className="mt-5 font-display text-xl md:text-2xl font-semibold leading-tight tracking-tight relative">
-        {p.name}
-      </h3>
-
-      {p.blurb && (
-        <p className="mt-2 text-sm text-muted-foreground leading-relaxed relative line-clamp-3">
-          {p.blurb}
-        </p>
-      )}
-
-      <div className="mt-auto pt-6 flex items-center justify-between text-xs font-mono text-muted-foreground relative">
-        <span className="truncate">
-          {hasUrl ? new URL(p.url!).hostname.replace("www.", "") : "Private build"}
-        </span>
-        <span
-          className={cn(
-            "inline-flex items-center gap-1 transition-all",
-            hasUrl ? "text-primary group-hover:translate-x-1" : "opacity-50"
-          )}
-        >
-          {hasUrl ? "Visit" : "—"} {hasUrl && <span aria-hidden>→</span>}
-        </span>
-      </div>
-    </Tag>
-  );
-};
 
 export const Projects = () => {
   const [active, setActive] = useState<(typeof categories)[number]>("All");
@@ -84,7 +9,6 @@ export const Projects = () => {
 
   const filtered = useMemo(() => {
     const list = active === "All" ? projects : projects.filter((p) => p.category === active);
-    // featured first
     return [...list].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
   }, [active]);
 
@@ -134,8 +58,8 @@ export const Projects = () => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {visible.map((p) => (
-            <ProjectCard key={p.id} p={p} />
+          {visible.map((p, i) => (
+            <ProjectCard key={p.id} p={p} index={i} />
           ))}
         </div>
 
