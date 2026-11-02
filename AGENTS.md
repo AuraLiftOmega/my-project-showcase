@@ -3,4 +3,4 @@
 - Treat workspace publication metadata as publication status, not evidence of live reachability; retain unavailable historical entries as unverified.
 - Serve root legal documents through matching public copies so footer links download the same text.
 - Store homepage screenshots as CDN asset pointers referenced by the project collection; project cards fall back to category artwork on missing or failed captures without changing publication status.
-- Display uploaded architecture artwork in a separate expandable concept gallery, not as workspace project records or proof of operational integrations.
+- Keep architecture artwork and evidence-backed project connections in one shared collection; reuse its gallery/viewer on home and case study pages, marking unmatched artwork as additional concepts to avoid implying provenance or operational integrations.

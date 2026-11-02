@@ -8,6 +8,7 @@ import { useSpotlight } from "@/hooks/useSpotlight";
 import { BRAND_TIMELINE, type LiveStatus } from "@/data/brandTimeline";
 import { brandBySlug, brandSlug, WORK_SLUG_BY_PROJECT_ID } from "@/lib/brandSlug";
 import { useLiveStatus } from "@/hooks/useLiveStatus";
+import { Architecture } from "@/components/portfolio/Architecture";
 
 const statusBadge: Record<LiveStatus, { label: string; className: string }> = {
   live: { label: "● LIVE", className: "bg-emerald-500/10 text-emerald-400 ring-1 ring-emerald-500/30" },
@@ -201,6 +202,8 @@ const Brand = () => {
           </p>
         </article>
       </section>
+
+      <Architecture projectId={brand.projectId} />
 
       {related.length > 0 && (
         <section className="container pb-24">

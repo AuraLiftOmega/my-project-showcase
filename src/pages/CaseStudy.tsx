@@ -4,6 +4,7 @@ import { caseBySlug, caseStudies } from "@/data/caseStudies";
 import { SEO } from "@/components/seo/SEO";
 import { Nav } from "@/components/portfolio/Nav";
 import { useSpotlight } from "@/hooks/useSpotlight";
+import { Architecture } from "@/components/portfolio/Architecture";
 
 const CaseStudy = () => {
   const { slug = "" } = useParams();
@@ -249,6 +250,8 @@ const CaseStudy = () => {
             </section>
           </div>
         </section>
+
+        <div className="mt-20"><Architecture projectId={study.projectId} /></div>
 
         {/* Next case study */}
         <section className="container mt-24 mb-24">
