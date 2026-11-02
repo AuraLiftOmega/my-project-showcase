@@ -1,4 +1,4 @@
-import { useRef, type MouseEvent } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 import { type Project } from "@/data/projects";
 import { categoryArt, categoryAccent } from "@/data/categoryArt";
 import { cn } from "@/lib/utils";
@@ -8,6 +8,8 @@ export const ProjectCard = ({ p, index = 0 }: { p: Project; index?: number }) =>
   const accent = categoryAccent[p.category];
   const art = categoryArt[p.category];
   const hasUrl = p.status === "published" && Boolean(p.url);
+  const [failedScreenshot, setFailedScreenshot] = useState<string>();
+  const screenshot = hasUrl && p.screenshot !== failedScreenshot ? p.screenshot : undefined;
 
   const onMove = (e: MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
@@ -42,20 +44,24 @@ export const ProjectCard = ({ p, index = 0 }: { p: Project; index?: number }) =>
       {/* Thumbnail */}
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
-          src={art}
-          alt=""
+          src={screenshot ?? art}
+          alt={screenshot ? `${p.name} homepage screenshot` : ""}
+          onError={screenshot ? () => setFailedScreenshot(screenshot) : undefined}
           loading="lazy"
           width={1024}
           height={640}
-          className="absolute inset-0 h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700"
+          className={cn(
+            "absolute inset-0 h-full w-full object-cover",
+            screenshot ? "object-top" : "scale-105 group-hover:scale-110 transition-transform duration-700"
+          )}
         />
-        <div
+        {!screenshot && <div
           className={cn(
             "absolute inset-0 mix-blend-overlay opacity-70 bg-gradient-to-br",
             accent
           )}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+        />}
+        {!screenshot && <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />}
 
         {/* Top chips */}
         <div className="absolute top-3 left-3 right-3 flex items-start justify-between gap-2 z-10">

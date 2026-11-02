@@ -13,6 +13,7 @@ import { Contact } from "@/components/portfolio/Contact";
 import { useSpotlight } from "@/hooks/useSpotlight";
 import { SEO } from "@/components/seo/SEO";
 import { stats } from "@/data/projects";
+import { Architecture } from "@/components/portfolio/Architecture";
 
 const Index = () => {
   useSpotlight();
@@ -63,6 +64,7 @@ const Index = () => {
       <Marquee />
       <Projects />
       <CaseStudies />
+      <Architecture />
       <Manifesto />
       <About />
       <Process />

@@ -1,7 +1,24 @@
+import homepage0 from "@/assets/project-homepages/644d4b39-6caa-4951-a36a-ea869d5c59b7.webp.asset.json";
+import homepage1 from "@/assets/project-homepages/3fac0efa-0c53-4f2d-b77e-e310ba7a0ae5.webp.asset.json";
+import homepage2 from "@/assets/project-homepages/9bab356d-3978-4977-aaa2-4d0d6b21f319.webp.asset.json";
+import homepage3 from "@/assets/project-homepages/97822ff4-cad3-4a10-9ec2-04bfc66c5d5b.webp.asset.json";
+import homepage4 from "@/assets/project-homepages/9dd34f92-b4a4-4f0d-9123-2ff320f1e715.webp.asset.json";
+import homepage5 from "@/assets/project-homepages/550e18cb-62ba-44b5-b1a8-3eb98c98c2e5.webp.asset.json";
+import homepage6 from "@/assets/project-homepages/9f657338-481e-4b27-b03e-c1be751697ec.webp.asset.json";
+import homepage7 from "@/assets/project-homepages/a13e9db4-7120-4871-9d9c-bae0cb5b573d.webp.asset.json";
+import homepage8 from "@/assets/project-homepages/ec9a99d6-6d5c-40bf-a090-4faa3fae1462.webp.asset.json";
+import homepage9 from "@/assets/project-homepages/13f38317-e542-4d99-ab63-d504f4c60b09.webp.asset.json";
+import homepage10 from "@/assets/project-homepages/afa2a6ba-d1d6-41a5-9abe-1339fdbb024a.webp.asset.json";
+import homepage11 from "@/assets/project-homepages/760b5673-d181-462f-858d-d0b1a133e12f.webp.asset.json";
+import homepage12 from "@/assets/project-homepages/35280351-91af-4d8d-8d2e-02d34c24a947.webp.asset.json";
+import homepage13 from "@/assets/project-homepages/10f05caf-8614-47a7-b1f5-66e4dddd7e4f.webp.asset.json";
+import homepage14 from "@/assets/project-homepages/58959f59-6e2c-49df-b79b-cbad9e59e641.webp.asset.json";
+
 export type Project = {
   id: string;
   name: string;
   url?: string;
+  screenshot?: string;
   category:
     | "AI Agents"
     | "Web3"
@@ -26,7 +43,8 @@ export const projects: Project[] = [
     "featured": true,
     "blurb": "Fully autonomous digital sales platform led by Grok CEO master agent.",
     "status": "published",
-    "url": "https://dominion-boss-forge.lovable.app"
+    "url": "https://dominion-boss-forge.lovable.app",
+    "screenshot": homepage0.url
   },
   {
     "id": "3fac0efa-0c53-4f2d-b77e-e310ba7a0ae5",
@@ -35,7 +53,8 @@ export const projects: Project[] = [
     "featured": true,
     "blurb": "Global sales orchestration brain powering Aura Lift Essentials.",
     "status": "published",
-    "url": "https://ryan-aries-mode-puddy.lovable.app"
+    "url": "https://ryan-aries-mode-puddy.lovable.app",
+    "screenshot": homepage1.url
   },
   {
     "id": "9bab356d-3978-4977-aaa2-4d0d6b21f319",
@@ -44,7 +63,8 @@ export const projects: Project[] = [
     "featured": true,
     "blurb": "Agent swarm continuously syncing your library with cloud cognition.",
     "status": "published",
-    "url": "https://neural-guide-sync.lovable.app"
+    "url": "https://neural-guide-sync.lovable.app",
+    "screenshot": homepage2.url
   },
   {
     "id": "97822ff4-cad3-4a10-9ec2-04bfc66c5d5b",
@@ -53,7 +73,8 @@ export const projects: Project[] = [
     "featured": true,
     "blurb": "Forge a Web3 empire \u2014 multi-chain protocol scaffolding.",
     "status": "published",
-    "url": "https://web3-empire-forge.lovable.app"
+    "url": "https://web3-empire-forge.lovable.app",
+    "screenshot": homepage3.url
   },
   {
     "id": "9dd34f92-b4a4-4f0d-9123-2ff320f1e715",
@@ -62,7 +83,8 @@ export const projects: Project[] = [
     "featured": true,
     "blurb": "Deployment cockpit for the GrokFather agent stack.",
     "status": "published",
-    "url": "https://thegrokfather.lovable.app"
+    "url": "https://thegrokfather.lovable.app",
+    "screenshot": homepage4.url
   },
   {
     "id": "550e18cb-62ba-44b5-b1a8-3eb98c98c2e5",
@@ -71,14 +93,16 @@ export const projects: Project[] = [
     "featured": true,
     "blurb": "Generate investor-ready packets in minutes.",
     "status": "published",
-    "url": "https://thunderbird-packet-craft.lovable.app"
+    "url": "https://thunderbird-packet-craft.lovable.app",
+    "screenshot": homepage5.url
   },
   {
     "id": "9f657338-481e-4b27-b03e-c1be751697ec",
     "name": "CEO BRAIN SALES SUITE",
     "category": "AI Agents",
     "status": "published",
-    "url": "https://love-the-style.lovable.app"
+    "url": "https://love-the-style.lovable.app",
+    "screenshot": homepage6.url
   },
   {
     "id": "c7bfd0f5-baa4-49c1-9d4f-f6d847beed88",
@@ -176,7 +200,8 @@ export const projects: Project[] = [
     "name": "Profit Navigator",
     "category": "Trading & Markets",
     "status": "published",
-    "url": "https://ceo-edge-suite.lovable.app"
+    "url": "https://ceo-edge-suite.lovable.app",
+    "screenshot": homepage7.url
   },
   {
     "id": "ac02ea2d-b493-4851-b61c-787e74b56ab1",
@@ -333,7 +358,8 @@ export const projects: Project[] = [
     "name": "Remix of hobby-photographer-template",
     "category": "Creator OS",
     "status": "published",
-    "url": "https://ryanpuddyportfolio.lovable.app"
+    "url": "https://ryanpuddyportfolio.lovable.app",
+    "screenshot": homepage8.url
   },
   {
     "id": "7719d0f2-9c0f-42d3-aee9-ea23d5c22a7c",
@@ -532,7 +558,8 @@ export const projects: Project[] = [
     "name": "Ocean Floor Portal",
     "category": "Web3",
     "status": "published",
-    "url": "https://blue-wave-alchemy.lovable.app"
+    "url": "https://blue-wave-alchemy.lovable.app",
+    "screenshot": homepage9.url
   },
   {
     "id": "6122197c-f056-4b6c-b4c9-156537e30678",
@@ -551,7 +578,8 @@ export const projects: Project[] = [
     "name": "Grea8gawd Live",
     "category": "Web3",
     "status": "published",
-    "url": "https://grea8-fanfare.lovable.app"
+    "url": "https://grea8-fanfare.lovable.app",
+    "screenshot": homepage10.url
   },
   {
     "id": "e711732d-bb4b-40ab-a9a1-29200359b5b6",
@@ -599,7 +627,8 @@ export const projects: Project[] = [
     "category": "Experiments",
     "blurb": "A software design principles showcase.",
     "status": "published",
-    "url": "https://cognitivesyncryanpuddy.lovable.app"
+    "url": "https://cognitivesyncryanpuddy.lovable.app",
+    "screenshot": homepage11.url
   },
   {
     "id": "aeb6e304-6057-4df1-acbb-fab2ef22ca89",
@@ -621,7 +650,8 @@ export const projects: Project[] = [
     "category": "AI Agents",
     "blurb": "AI-powered event ticket flash-sales platform.",
     "status": "published",
-    "url": "https://rush-sales-bot.lovable.app"
+    "url": "https://rush-sales-bot.lovable.app",
+    "screenshot": homepage12.url
   },
   {
     "id": "cff35036-609e-4c7e-8549-579de74dbfef",
@@ -692,7 +722,8 @@ export const projects: Project[] = [
     "category": "Productivity",
     "blurb": "Project organization and production-readiness workspace.",
     "status": "published",
-    "url": "https://puddymode.lovable.app"
+    "url": "https://puddymode.lovable.app",
+    "screenshot": homepage13.url
   },
   {
     "id": "5745420c-74f2-4dea-9919-9bae0ccfa170",
@@ -714,7 +745,8 @@ export const projects: Project[] = [
     "category": "AI Agents",
     "blurb": "Cloud platform with AI agents and optimization tools.",
     "status": "published",
-    "url": "https://signchart-super-nova.lovable.app"
+    "url": "https://signchart-super-nova.lovable.app",
+    "screenshot": homepage14.url
   },
   {
     "id": "da6416ab-7d4b-4e3a-9a61-abdc3765f1b8",
