@@ -1,5 +1,5 @@
 # Portfolio refresh
-- [ ] Add the three uploaded architecture diagrams as an expandable concept gallery; verify full-size viewing without inventing project or integration claims.
+- [x] Added the three uploaded architecture diagrams in a concept gallery; verified all images load and each full-size view opens and closes.
 - [x] Added 15 real published homepage screenshots; verified hosted image loading, unavailable-image fallback, and nine passing project tests.
 - [x] Verified all 50 readable screenshot project names; restored Global Reach Pro to the default showcase without duplication, keeping its publication status unverified.
 - [x] Refresh all 108 accessible owned projects and 15 published links; preserve six historical entries separately.
