@@ -7,7 +7,7 @@ export const ProjectCard = ({ p, index = 0 }: { p: Project; index?: number }) =>
   const ref = useRef<HTMLDivElement>(null);
   const accent = categoryAccent[p.category];
   const art = categoryArt[p.category];
-  const hasUrl = Boolean(p.url);
+  const hasUrl = p.status === "published" && Boolean(p.url);
 
   const onMove = (e: MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
@@ -65,11 +65,11 @@ export const ProjectCard = ({ p, index = 0 }: { p: Project; index?: number }) =>
           {hasUrl ? (
             <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest glass">
               <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-glow animate-pulse-glow" />
-              Live
+              Published
             </span>
           ) : (
             <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest glass text-muted-foreground">
-              Private
+              {p.status === "unverified" ? "Unverified" : "Unpublished"}
             </span>
           )}
         </div>
@@ -77,7 +77,7 @@ export const ProjectCard = ({ p, index = 0 }: { p: Project; index?: number }) =>
 
       {/* Body */}
       <div className="relative p-5 md:p-6 tilt-inner">
-        <h3 className="font-display text-xl md:text-[1.35rem] font-semibold leading-tight tracking-tight">
+        <h3 className="font-display text-xl md:text-[1.35rem] font-semibold leading-tight break-words">
           {p.name}
         </h3>
         {p.blurb && (
@@ -87,7 +87,7 @@ export const ProjectCard = ({ p, index = 0 }: { p: Project; index?: number }) =>
         )}
         <div className="mt-5 flex items-center justify-between text-xs font-mono">
           <span className="truncate text-muted-foreground">
-            {hasUrl ? new URL(p.url!).hostname.replace("www.", "") : "Internal build"}
+            {hasUrl && p.url ? new URL(p.url).hostname.replace("www.", "") : p.status === "unverified" ? "Historical listing" : "No published website listed"}
           </span>
           <span
             className={cn(
