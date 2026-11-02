@@ -39,14 +39,16 @@ export const Contact = () => {
           </div>
         </div>
 
-        <footer className="mt-16 pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <div className="font-mono">
-            © {new Date().getFullYear()} Ryan Puddy · Architecting the autonomous economy
+        <footer className="mt-16 pt-8 border-t border-border/50 flex flex-col gap-4 text-sm text-muted-foreground">
+          <div className="font-mono leading-relaxed">
+            © 2024–2026 Aura Lift Essentials LLC™ · Made &amp; created by Ryan Puddy, Web3 Architect
           </div>
-          <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="h-2 w-2 rounded-full bg-primary shadow-glow animate-pulse-glow" />
-            All systems operational
+          <div className="flex flex-wrap gap-4 font-mono text-xs">
+            <a href="/LICENSE" className="hover:text-foreground" download>License</a>
+            <a href="/TRADEMARKS.md" className="hover:text-foreground" download>Trademarks</a>
           </div>
+          <p className="text-xs">Aura Lift Essentials™ and Ryan Puddy Portfolio™ are marks of Aura Lift Essentials LLC™. All rights reserved.</p>
+          <p className="text-xs">Corporate or commercial use requires a written license and royalties of 5% gross revenue or $5,000/year. Contact ryanauralift@gmail.com.</p>
         </footer>
       </div>
     </section>
