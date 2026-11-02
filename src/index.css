@@ -211,6 +211,23 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  .architecture-viewer {
+    letter-spacing: 0;
+  }
+  .viewer-header {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  .viewer-footer {
+    padding-bottom: max(0.25rem, env(safe-area-inset-bottom));
+  }
+  .viewer-canvas {
+    touch-action: pan-x pan-y pinch-zoom;
+  }
+  .architecture-viewer button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 @layer utilities {
