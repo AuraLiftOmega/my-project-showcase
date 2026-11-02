@@ -715,6 +715,12 @@ export const projects: Project[] = [
     "blurb": "Cloud platform with AI agents and optimization tools.",
     "status": "published",
     "url": "https://signchart-super-nova.lovable.app"
+  },
+  {
+    "id": "da6416ab-7d4b-4e3a-9a61-abdc3765f1b8",
+    "name": "Global Reach Pro",
+    "category": "Productivity",
+    "status": "unverified"
   }
 ];
 
@@ -736,12 +742,6 @@ export const archivedProjects: Project[] = [
     "id": "602edf4f-0f37-4f00-b837-2fb3d79b54b5",
     "name": "Profit Reaper Engine",
     "category": "Trading & Markets",
-    "status": "unverified"
-  },
-  {
-    "id": "da6416ab-7d4b-4e3a-9a61-abdc3765f1b8",
-    "name": "Global Reach Pro",
-    "category": "Productivity",
     "status": "unverified"
   },
   {

@@ -13,7 +13,7 @@ export const Projects = () => {
   const [status, setStatus] = useState("all");
 
   const filtered = useMemo(() => {
-    const source = status === "unverified" ? archivedProjects : projects;
+    const source = status === "unverified" ? [...projects, ...archivedProjects] : projects;
     const list = source.filter((p) =>
       (active === "All" || p.category === active) &&
       (status === "all" || p.status === status) &&
@@ -51,8 +51,8 @@ export const Projects = () => {
           <select aria-label="Project publication status" value={status} onChange={(e) => { setStatus(e.target.value); setShowAll(false); }} className="h-10 rounded-md border border-input bg-background text-foreground px-3 text-sm">
             <option value="all">All current projects</option>
             <option value="published">Published ({stats.shipped})</option>
-            <option value="unpublished">Unpublished ({projects.length - stats.shipped})</option>
-            <option value="unverified">Historical · unverified ({archivedProjects.length})</option>
+            <option value="unpublished">Unpublished ({projects.filter((p) => p.status === "unpublished").length})</option>
+            <option value="unverified">Unverified ({projects.filter((p) => p.status === "unverified").length + archivedProjects.length})</option>
           </select>
         </div>
         <div className="flex flex-wrap gap-2 mb-10">
