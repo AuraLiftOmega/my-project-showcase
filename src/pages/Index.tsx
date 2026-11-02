@@ -55,7 +55,7 @@ const Index = () => {
     <main className="min-h-screen bg-background text-foreground">
       <SEO
         title="Ryan Puddy — Web3 Architect & AI Systems Builder"
-        description={`Portfolio of Ryan Puddy. ${stats.totalProjects}+ shipped systems across AI agents, Web3, autonomous commerce and creator OS — Aura Lift, Dominion, OMEGA, CEO Brain.`}
+        description={`Portfolio of Ryan Puddy. ${stats.totalProjects} projects and ${stats.shipped} published websites across AI agents, Web3, autonomous commerce and creator OS — Aura Lift, Dominion, OMEGA, CEO Brain.`}
         jsonLd={jsonLd}
       />
       <Nav />

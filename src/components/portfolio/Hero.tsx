@@ -35,14 +35,16 @@ const MagneticButton = ({
       ref={ref}
       href={href}
       onMouseMove={(e) => {
-        const el = ref.current!;
+        const el = ref.current;
+        if (!el) return;
         const r = el.getBoundingClientRect();
         const x = e.clientX - (r.left + r.width / 2);
         const y = e.clientY - (r.top + r.height / 2);
         el.style.transform = `translate(${x * 0.18}px, ${y * 0.25}px)`;
       }}
       onMouseLeave={() => {
-        const el = ref.current!;
+        const el = ref.current;
+        if (!el) return;
         el.style.transform = "translate(0,0)";
       }}
       className={`group inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold transition-[box-shadow,background] duration-500 will-change-transform ${
@@ -79,7 +81,7 @@ export const Hero = () => {
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs font-mono uppercase tracking-widest text-muted-foreground mb-8 animate-fade-up">
               <span className="h-2 w-2 rounded-full bg-primary shadow-glow animate-pulse-glow" />
-              Online · Building in public · {stats.totalProjects} systems shipped
+              Building in public · {stats.totalProjects} projects
             </div>
 
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight animate-fade-up" style={{ animationDelay: "60ms" }}>
@@ -106,12 +108,12 @@ export const Hero = () => {
             <dl className="mt-14 grid grid-cols-3 max-w-xl gap-2 animate-fade-up" style={{ animationDelay: "240ms" }}>
               {[
                 { v: total, l: "Projects" },
-                { v: live, l: "Live & published" },
+                { v: live, l: "Published websites" },
                 { v: verticals, l: "Verticals" },
               ].map((s) => (
                 <div key={s.l} className="rounded-2xl p-4 glass">
                   <dt className="font-display text-3xl md:text-4xl font-bold text-gradient leading-none">
-                    {s.v}+
+                    {s.v}
                   </dt>
                   <dd className="mt-2 text-[11px] uppercase tracking-widest text-muted-foreground">
                     {s.l}
@@ -160,7 +162,7 @@ export const Hero = () => {
               {/* Status chip */}
               <div className="absolute -top-4 -left-2 glass rounded-2xl px-4 py-2 flex items-center gap-2 shadow-elevated animate-float" style={{ animationDelay: "0.8s" }}>
                 <span className="h-2 w-2 rounded-full bg-primary shadow-glow animate-pulse-glow" />
-                <span className="font-mono text-xs">93 systems · operational</span>
+                <span className="font-mono text-xs">{stats.totalProjects} projects · {stats.shipped} published</span>
               </div>
             </div>
           </div>
