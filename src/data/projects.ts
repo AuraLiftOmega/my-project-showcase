@@ -2,6 +2,7 @@ export type Project = {
   id: string;
   name: string;
   url?: string;
+  screenshot?: string;
   category:
     | "AI Agents"
     | "Web3"
